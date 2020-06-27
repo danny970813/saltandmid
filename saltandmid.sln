@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "saltandmid", "saltandmid\saltandmid.vcxproj", "{A14FCFA7-1B53-4F79-BF8A-0C5C76A10356}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A14FCFA7-1B53-4F79-BF8A-0C5C76A10356}.Debug|x64.ActiveCfg = Debug|x64
+		{A14FCFA7-1B53-4F79-BF8A-0C5C76A10356}.Debug|x64.Build.0 = Debug|x64
+		{A14FCFA7-1B53-4F79-BF8A-0C5C76A10356}.Debug|x86.ActiveCfg = Debug|Win32
+		{A14FCFA7-1B53-4F79-BF8A-0C5C76A10356}.Debug|x86.Build.0 = Debug|Win32
+		{A14FCFA7-1B53-4F79-BF8A-0C5C76A10356}.Release|x64.ActiveCfg = Release|x64
+		{A14FCFA7-1B53-4F79-BF8A-0C5C76A10356}.Release|x64.Build.0 = Release|x64
+		{A14FCFA7-1B53-4F79-BF8A-0C5C76A10356}.Release|x86.ActiveCfg = Release|Win32
+		{A14FCFA7-1B53-4F79-BF8A-0C5C76A10356}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {819C1481-EF32-4252-81DB-BF6E604A3A61}
+	EndGlobalSection
+EndGlobal
