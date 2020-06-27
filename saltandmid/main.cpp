@@ -12,12 +12,13 @@ void salt(Mat img, float n)
 {
 	int x, y;
 
-	random_device rand;
-	default_random_engine gen;//亂數產生器
+	random_device rand{};//亂數種子
+	default_random_engine gen{rand()};//亂數產生器
 	uniform_int_distribution<int> row(0, img.rows - 1);//row亂數分布
 	uniform_int_distribution<int> col(0, img.cols - 1);//col亂數分布
 
 	n = n * img.rows * img.cols;//雜訊數量
+
 	for (int i = 0; i < n; i++)
 	{
 		x = row(gen);//產生雜訊座標
@@ -73,7 +74,6 @@ double psnr(Mat img1, Mat img2) {//MSE=(sigma(|(img1-img2)|^2))/row*col, PSNR=10
 
 	Mat temp;
 	absdiff(img1, img2, temp);//|(img1-img2)|
-
 	temp.convertTo(temp, CV_32F);//轉成32bit避免平方溢位
 	temp = temp.mul(temp);//平方
 	Scalar s = sum(temp);//加總
@@ -85,37 +85,37 @@ double psnr(Mat img1, Mat img2) {//MSE=(sigma(|(img1-img2)|^2))/row*col, PSNR=10
 
 int main()
 {
-	Mat img = imread("sun.jpg", 1);
-	Mat ori;//儲存原圖用
-	Mat result;//儲存結果用
-	float percent;
-	img.copyTo(ori);
+	Mat ori = imread("tree.jpg", 1);
+	Mat img10, img20, img30;
+
+	ori.copyTo(img10);
+	ori.copyTo(img20);
+	ori.copyTo(img30);
 
 	namedWindow("original");
 	imshow("original", ori);
-
-	cout << "輸入雜訊百分比(0~100):";
-	cin >> percent;
-
-	if (percent > 100 || percent < 0) {
-		cout << "輸入錯誤，輸入範圍為0~100" << endl;
-		return 0;
-	}
-
-	percent = percent / 100;
-
-	salt(img, percent);//加入雜訊
 	
-	namedWindow("salt");
-	imshow("salt", img);
-	cout << "original and salt PSNR=" << psnr(ori, img) << endl;
 
-	result = midfilter(img);//中值濾波
+	salt(img10, 0.1);//加入雜訊
+	salt(img20, 0.2);
+	salt(img30, 0.3);
 
-	namedWindow("result");
-	imshow("result", result);
-	cout << "original and result PSNR=" << psnr(ori, result) << endl;
-	cout << "salt and result PSNR=" << psnr(img, result) << endl;
+	img10 = midfilter(img10);//中值濾波
+	img20 = midfilter(img20);
+	img30 = midfilter(img30);
+
+	namedWindow("result10%");
+	imshow("result10%", img10);
+
+	namedWindow("result20%");
+	imshow("result20%", img20);
+
+	namedWindow("result30%");
+	imshow("result30%", img30);
+
+	cout << "original and salt10% PSNR=" << psnr(ori, img10) << endl;
+	cout << "original and salt20% PSNR=" << psnr(ori, img20) << endl;
+	cout << "original and salt30% PSNR=" << psnr(ori, img30) << endl;
 
 	waitKey(0);
 	destroyAllWindows();

@@ -1,2 +1,5 @@
 ﻿  main.cpp
+C:\Users\danny\Desktop\saltandmid\saltandmid\main.cpp(99,17): warning C4305: '引數': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+C:\Users\danny\Desktop\saltandmid\saltandmid\main.cpp(100,17): warning C4305: '引數': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+C:\Users\danny\Desktop\saltandmid\saltandmid\main.cpp(101,17): warning C4305: '引數': 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
   saltandmid.vcxproj -> C:\Users\danny\Desktop\saltandmid\x64\Debug\saltandmid.exe
